@@ -68,3 +68,13 @@ def compute_metric(eval_pred):
 trainer.train()
 
 trainer.evaluate()
+
+trainer.save_model()
+
+trainer.push_to_hub("your_username_on_HuggingFace_here/modelhate")
+
+from transformers import pipeline
+
+pipe = pipeline("text-classification", model="your_username_on_HuggingFace_here/bert-hate-speech-test")
+
+pipe('Texto para teste!')
